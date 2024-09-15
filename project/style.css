@@ -1,4 +1,3 @@
-@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
 * {
   margin: 0;
@@ -10,34 +9,70 @@ body {
   font-family: "Playfair Display", sans-serif;
 }
 
-header nav {
+header .nav-bar {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #fff; /* 設置背景顏色 */
+  background-color: #fff;
   height: 70px;
   margin-top: 10px;
+  list-style: none;
+  position: relative;
+  padding: 12px 20px;
 }
-header nav ul {
+header .nav-bar .menu {
   display: flex;
-  list-style-type: none; /* 移除預設的項目符號 */
+  align-items: center;
 }
-header nav ul li {
+header .nav-bar .menu li {
   margin: 0 10px;
 }
-header nav ul li a {
-  font-size: 0.8rem; /* 設置字體大小 */
-  color: #333; /* 設置字體顏色 */
-  text-decoration: none; /* 移除底線 */
-  transition: all 0.2s ease; /* 添加過渡效果 */
+header .nav-bar .menu li a {
+  display: inline-block;
+  text-decoration: none;
+  color: gray;
+  text-align: center;
+  transition: 0.15s ease-in-out;
+  position: relative;
+  text-transform: uppercase;
 }
-header nav ul li a:hover {
-  color: #907e60; /* 滑鼠懸停時的背景顏色 */
-  border-bottom: 3px solid #907e60; /* 滑鼠懸停時的邊框顏色 */
+header .open-menu,
+header .close-menu {
+  position: absolute;
+  cursor: pointer;
+  font-size: 1.5rem;
+  display: none;
 }
-header nav .top-logo {
-  border: 1px solid #333; /* 設置邊框顏色和寬度 */
-  border-radius: 50%; /* 設置圓角，使其成為圓形 */
+header .open-menu {
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+}
+header .close-menu {
+  top: 20px;
+  right: 20px;
+}
+header #check {
+  display: none;
+}
+
+li {
+  margin: 0 10px;
+}
+li a {
+  font-size: 0.8rem;
+  color: #333;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+li a:hover {
+  color: #907e60;
+  border-bottom: 3px solid #907e60;
+}
+
+.top-logo {
+  border: 1px solid #333;
+  border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -45,7 +80,7 @@ header nav .top-logo {
   height: 30px;
   margin: 0 15px;
 }
-header nav .top-logo p {
+.top-logo p {
   margin: 5px;
 }
 
@@ -63,7 +98,7 @@ nav li a:hover:after {
 }
 
 .open-menu {
-  top: 50%;
+  top: 5%;
   right: 20px;
   transform: translateY(-50%);
 }
@@ -78,18 +113,18 @@ nav li a:hover:after {
 }
 
 * .divider {
-  width: 100%; /* 設置線條寬度 */
-  height: 0.5px; /* 設置線條高度 */
-  background-color: #333; /* 設置線條顏色 */
-  margin: 20px 0; /* 添加上下邊距 */
+  width: 100%;
+  height: 0.5px;
+  background-color: #333;
+  margin: 20px 0;
 }
 
 * .line {
-  display: block; /* 將 span 設置為塊級元素 */
-  width: 5vh; /* 設置寬度 */
-  height: 0.5px; /* 設置高度 */
-  background-color: #000; /* 設置背景顏色 */
-  margin: 20px 5px; /* 添加上下邊距 */
+  display: block;
+  width: 5vh;
+  height: 0.5px;
+  background-color: #000;
+  margin: 20px 5px;
 }
 
 * .number {
@@ -106,7 +141,7 @@ nav li a:hover:after {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  row-gap: 0px; /* 調整行間距 */
+  row-gap: 0px;
 }
 .background-img p {
   color: #ffffff;
@@ -132,8 +167,7 @@ main .about-dangao .about-items p {
   font-size: 10px;
 }
 main .about-dangao .about-items h1 {
-  /* 這裡可以覆蓋全局 h1 樣式 */
-  display: inline; /* 或者使用 inline-block */
+  display: inline;
 }
 main .about-dangao .about-items span {
   font-size: 10px;
@@ -143,15 +177,15 @@ main .about-dangao .about-items .introduce {
 }
 main .about-dangao .about-items .introduce p {
   font-size: 10px;
-  line-height: 2; /* 增加行間距 */
-  margin: 10px 0; /* 上下邊距為 20px，左右邊距為 0 */
+  line-height: 2;
+  margin: 10px 0;
 }
 main .about-dangao img {
   width: auto;
   height: 200px;
   margin: 50px 0;
   -o-object-fit: cover;
-     object-fit: cover; /* 確保圖片不變形 */
+     object-fit: cover;
 }
 main .popular-cake {
   display: flex;
@@ -180,7 +214,7 @@ main .popular-cake p {
   padding: 20px 0;
   text-align: center;
   font-size: 10px;
-  line-height: 2; /* 增加行間距 */
+  line-height: 2;
 }
 main .popular-cake .free-photo {
   display: flex;
@@ -208,7 +242,7 @@ main .new-contacts .new-contact {
 }
 main .new-contacts .new-contact p {
   font-size: 10px;
-  margin: 10px 0; /* 增加行間距 */
+  margin: 10px 0;
 }
 main .new-contacts .new-contact .news {
   display: flex;
@@ -333,8 +367,8 @@ footer section {
   align-items: center;
 }
 footer section .bottom-logo {
-  border: 1px solid #907e60; /* 設置邊框顏色和寬度 */
-  border-radius: 50%; /* 設置圓角，使其成為圓形 */
+  border: 1px solid #907e60;
+  border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -347,15 +381,14 @@ footer section .bottom-logo p {
   margin: 10px;
 }
 footer section .vertical-line {
-  display: inline-block; /* 將 span 設置為行內塊級元素 */
-  width: 0.5px; /* 設置寬度 */
-  height: 50px; /* 設置高度 */
-  background-color: #907e60; /* 設置背景顏色 */
-  margin: 0 10px; /* 添加左右邊距 */
+  display: inline-block;
+  width: 0.5px;
+  height: 50px;
+  background-color: #907e60;
+  margin: 0 10px;
 }
 footer section .company {
   font-family: sans-serif;
-  /* 增加行間距 */
 }
 footer section .company p {
   font-size: 10px;
@@ -370,7 +403,7 @@ footer .icons .icon {
 }
 footer .icons .icon a {
   list-style-type: none;
-  text-decoration: none; /* 移除底線 */
+  text-decoration: none;
 }
 footer .icons .icon a .fa-brands {
   display: flex;
@@ -388,33 +421,77 @@ footer .icons p {
   color: #907e60;
 }
 
-@media (max-width: 610px) {
-  nav,
-  ul {
+@media (max-width: 850px) {
+  .nav-bar {
+    position: fixed;
+    background-color: rgba(255, 255, 255, 0) !important;
+    margin-top: 0 !important;
+  }
+  .menu {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 80%;
+    width: 40%;
     height: 100vh;
     position: fixed;
     top: 0;
     right: -100%;
     z-index: 100;
-    background-color: var(--color2);
+    background-color: #fff;
     transition: all 0.2s ease-in-out;
   }
-  nav,
-  li {
+  .menu .top-logo {
+    display: none;
+  }
+  .menu li {
     margin-top: 40px;
   }
-  nav,
-  li,
-  a {
-    padding: 10px;
+  .menu li a {
+    padding: 30px;
   }
   .open-menu,
   .close-menu {
+    display: block !important;
+  }
+  #check:checked ~ .menu {
+    right: 0;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  }
+}
+@media (max-width: 800px) {
+  nav .mainMenu {
+    height: 100vh;
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    left: 0px;
+    z-index: 10;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgb(0, 0, 0);
+    transition: top 1s ease 0s;
+    display: none;
+  }
+  nav .mainMenu .closeMenu {
     display: block;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+  nav .openMenu {
+    display: block;
+  }
+  nav.menu li {
+    padding-left: 30px;
+  }
+  nav .mainMenu li a:hover {
+    background: none;
+    color: rgb(255, 123, 0);
+  }
+  .icons i {
+    display: inline-block;
+    padding: 12px;
   }
 }
 @media (max-width: 690px) {
@@ -430,24 +507,24 @@ footer .icons p {
     align-items: center;
   }
   .about-dangao .number .line {
-    margin-top: 21px !important; /* 強制覆蓋原有樣式 */
+    margin-top: 21px !important;
   }
   .about-dangao .introduce {
     text-align: center;
   }
   .about-dangao h1 {
-    display: flex !important; /* 使用 Flexbox 布局，並強制覆蓋原有樣式 */
-    justify-content: center !important; /* 水平置中，並強制覆蓋原有樣式 */
-    align-items: center !important; /* 垂直置中，並強制覆蓋原有樣式 */
-    width: 100%; /* 確保 h1 佔滿父容器的寬度 */
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100%;
   }
   .about-dangao span {
     display: block;
     text-align: center;
   }
   .about-dangao img {
-    display: block; /* 將 img 設置為塊級元素 */
-    margin: auto; /* 使用 margin: auto 來垂直和水平置中 */
+    display: block;
+    margin: auto;
   }
 }
 @media (max-width: 690px) {
@@ -458,13 +535,13 @@ footer .icons p {
     flex-direction: column;
   }
   .cake h1 {
-    display: flex !important; /* 使用 Flexbox 布局，並強制覆蓋原有樣式 */
-    justify-content: center !important; /* 水平置中，並強制覆蓋原有樣式 */
-    align-items: center !important; /* 垂直置中，並強制覆蓋原有樣式 */
-    width: 100%; /* 確保 h1 佔滿父容器的寬度 */
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100%;
   }
   .cake .line {
-    margin-top: 25px !important; /* 強制覆蓋原有樣式 */
+    margin-top: 25px !important;
   }
   .cake span {
     display: block;
@@ -472,17 +549,69 @@ footer .icons p {
   }
 }
 @media (max-width: 690px) {
+  .contact-us {
+    height: 40vh !important;
+  }
+}
+@media (max-width: 690px) {
   footer {
-    justify-content: center;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  footer section {
+    flex-direction: column;
+    position: relative;
+  }
+  footer section .bottom-logo {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    width: 70px;
+    height: 70px;
+    margin: 30px 0;
+  }
+  footer section .bottom-logo p {
+    font-size: 2.5rem;
+  }
+  footer section .vertical-line {
+    position: absolute;
+    top: 10%;
+    left: -5%;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 0.5px;
   }
   footer .icons {
-    display: flex;
     align-items: center;
     justify-content: center;
-    margin: 20px 0;
+    margin: 50px 0;
   }
   footer .icons .icon {
+    justify-content: center;
+    align-items: center;
     margin: 0 20px;
+  }
+  footer .icons p {
+    margin: 10px 0;
+  }
+}
+@media (max-width: 375px) {
+  .new-contact {
+    display: flex !important;
+    flex-direction: column;
+  }
+  .new-contact .news {
+    display: block !important;
+    justify-content: center;
+    text-align: center;
+  }
+  .new-contact .news .new h1 {
+    margin-right: 10px !important;
+  }
+  .new-contact .new-btns {
+    margin: 20px 0;
   }
 }/*# sourceMappingURL=style.css.map */

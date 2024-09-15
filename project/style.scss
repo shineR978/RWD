@@ -10,45 +10,88 @@ body {
 }
 
 header {
-  nav {
+  .nav-bar {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #fff; /* 設置背景顏色 */
+    background-color: #fff; // 設置背景顏色
     height: 70px;
     margin-top: 10px;
 
-    ul {
-      display: flex;
-      list-style-type: none; /* 移除預設的項目符號 */
+    list-style: none;
+    position: relative;
 
+    padding: 12px 20px;
+    .menu {
+      display: flex;
+      // justify-content: center;
+      align-items: center;
       li {
         margin: 0 10px;
         a {
-          font-size: 0.8rem; /* 設置字體大小 */
-          color: #333; /* 設置字體顏色 */
-          text-decoration: none; /* 移除底線 */
-          transition: all 0.2s ease; /* 添加過渡效果 */
-          &:hover {
-            color: $themeColor; /* 滑鼠懸停時的背景顏色 */
-            border-bottom: 3px solid $themeColor; /* 滑鼠懸停時的邊框顏色 */
-          }
+          display: inline-block;
+          text-decoration: none;
+          color: gray;
+          text-align: center;
+          transition: 0.15s ease-in-out;
+          position: relative;
+          text-transform: uppercase;
         }
       }
     }
-    .top-logo {
-      border: 1px solid #333; /* 設置邊框顏色和寬度 */
-      border-radius: 50%; /* 設置圓角，使其成為圓形 */
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 30px;
-      height: 30px;
-      margin: 0 15px;
-      p {
-        margin: 5px;
-      }
+  }
+
+  .open-menu,
+  .close-menu {
+    position: absolute;
+    cursor: pointer; //將游標變成一個手指指向的圖標
+    font-size: 1.5rem;
+    display: none;
+    // 設置 .open-menu 和 .close-menu 樣式，
+    //包括絕對定位、樣式、字體大小和初始隱藏
+  }
+  .open-menu {
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    // 設置 .open-menu 的位置，垂直居中於右側
+  }
+  .close-menu {
+    top: 20px;
+    right: 20px;
+    // 設置 .close-menu 的位置，位於右上角
+  }
+  #check {
+    display: none;
+    // 當複選框被選中時，隱藏漢堡圖示
+  }
+}
+
+li {
+  margin: 0 10px;
+  a {
+    font-size: 0.8rem; // 設置字體大小
+    color: #333; // 設置字體顏色
+    text-decoration: none; // 移除底線
+    transition: all 0.2s ease; // 添加過渡效果
+    &:hover {
+      color: $themeColor; // 滑鼠懸停時的背景顏色
+      border-bottom: 3px solid $themeColor; // 滑鼠懸停時的邊框顏色
     }
+  }
+}
+
+.top-logo {
+  border: 1px solid #333; // 設置邊框顏色和寬度
+  border-radius: 50%; // 設置圓角，使其成為圓形
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  margin: 0 15px;
+  p {
+    margin: 5px;
   }
 }
 
@@ -64,7 +107,7 @@ nav li a:hover:after {
   display: none;
 }
 .open-menu {
-  top: 50%;
+  top: 5%;
   right: 20px;
   transform: translateY(-50%);
 }
@@ -77,18 +120,18 @@ nav li a:hover:after {
 }
 
 * .divider {
-  width: 100%; /* 設置線條寬度 */
-  height: 0.5px; /* 設置線條高度 */
-  background-color: #333; /* 設置線條顏色 */
-  margin: 20px 0; /* 添加上下邊距 */
+  width: 100%; // 設置線條寬度
+  height: 0.5px; // 設置線條高度
+  background-color: #333; // 設置線條顏色
+  margin: 20px 0; // 添加上下邊距
 }
 
 * .line {
-  display: block; /* 將 span 設置為塊級元素 */
-  width: 5vh; /* 設置寬度 */
-  height: 0.5px; /* 設置高度 */
-  background-color: #000; /* 設置背景顏色 */
-  margin: 20px 5px; /* 添加上下邊距 */
+  display: block; // 將 span 設置為塊級元素
+  width: 5vh; // 設置寬度
+  height: 0.5px; // 設置高度
+  background-color: #000; // 設置背景顏色
+  margin: 20px 5px; // 添加上下邊距
 }
 * .number {
   display: flex;
@@ -105,7 +148,7 @@ nav li a:hover:after {
   justify-content: center;
   align-items: center;
 
-  row-gap: 0px; /* 調整行間距 */
+  row-gap: 0px; // 調整行間距
   p {
     color: #ffffff;
     text-align: center;
@@ -130,8 +173,8 @@ main {
         font-size: 10px;
       }
       h1 {
-        /* 這裡可以覆蓋全局 h1 樣式 */
-        display: inline; /* 或者使用 inline-block */
+        // 這裡可以覆蓋全局 h1 樣式
+        display: inline; // 或者使用 inline-block
       }
       span {
         font-size: 10px;
@@ -140,8 +183,8 @@ main {
         display: flex;
         p {
           font-size: 10px;
-          line-height: 2; /* 增加行間距 */
-          margin: 10px 0; /* 上下邊距為 20px，左右邊距為 0 */
+          line-height: 2; // 增加行間距
+          margin: 10px 0; // 上下邊距為 20px，左右邊距為 0
         }
       }
     }
@@ -150,7 +193,7 @@ main {
       width: auto;
       height: 200px;
       margin: 50px 0;
-      object-fit: cover; /* 確保圖片不變形 */
+      object-fit: cover; // 確保圖片不變形
     }
   }
   .popular-cake {
@@ -181,7 +224,7 @@ main {
       padding: 20px 0;
       text-align: center;
       font-size: 10px;
-      line-height: 2; /* 增加行間距 */
+      line-height: 2; // 增加行間距
     }
     .free-photo {
       display: flex;
@@ -208,7 +251,7 @@ main {
       width: 80%;
       p {
         font-size: 10px;
-        margin: 10px 0; /* 增加行間距 */
+        margin: 10px 0; // 增加行間距
       }
 
       .news {
@@ -252,7 +295,7 @@ main {
         align-items: center;
         justify-content: center;
         flex-direction: column;
-        // border: 1px solid #333;
+
         background-color: #fff;
         border-radius: 50px;
         margin: 10px 10px;
@@ -340,8 +383,8 @@ footer {
 
     align-items: center;
     .bottom-logo {
-      border: 1px solid $themeColor; /* 設置邊框顏色和寬度 */
-      border-radius: 50%; /* 設置圓角，使其成為圓形 */
+      border: 1px solid $themeColor; // 設置邊框顏色和寬度
+      border-radius: 50%; // 設置圓角，使其成為圓形
       display: flex;
       justify-content: center;
       align-items: center;
@@ -354,15 +397,15 @@ footer {
       }
     }
     .vertical-line {
-      display: inline-block; /* 將 span 設置為行內塊級元素 */
-      width: 0.5px; /* 設置寬度 */
-      height: 50px; /* 設置高度 */
-      background-color: $themeColor; /* 設置背景顏色 */
-      margin: 0 10px; /* 添加左右邊距 */
+      display: inline-block; // 將 span 設置為行內塊級元素
+      width: 0.5px; // 設置寬度
+      height: 50px; // 設置高度
+      background-color: $themeColor; // 設置背景顏色
+      margin: 0 10px; // 添加左右邊距
     }
     .company {
       font-family: sans-serif;
-      /* 增加行間距 */
+      // 增加行間距
       p {
         font-size: 10px;
         color: $themeColor;
@@ -376,7 +419,7 @@ footer {
       justify-content: flex-end;
       a {
         list-style-type: none;
-        text-decoration: none; /* 移除底線 */
+        text-decoration: none; // 移除底線
 
         .fa-brands {
           display: flex;
@@ -398,33 +441,78 @@ footer {
   }
 }
 
-@media (max-width: 610px) {
-  nav,
-  ul {
+@media (max-width: 850px) {
+  .nav-bar {
+    position: fixed;
+    background-color: rgba(255, 255, 255, 0) !important; // 完全透明的白色背景
+    margin-top: 0 !important; // 強制覆蓋原有樣式
+  }
+  .menu {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 80%;
+    width: 40%;
     height: 100vh;
     position: fixed;
     top: 0;
     right: -100%;
     z-index: 100;
-    background-color: var(--color2);
+    background-color: #fff;
     transition: all 0.2s ease-in-out;
+    .top-logo {
+      display: none;
+    }
   }
-  nav,
-  li {
+  .menu li {
     margin-top: 40px;
   }
-  nav,
-  li,
-  a {
-    padding: 10px;
+  .menu li a {
+    padding: 30px;
   }
   .open-menu,
   .close-menu {
+    display: block !important;
+  }
+  #check:checked ~ .menu {
+    right: 0; //當 checkbox 被選中時顯示導航欄
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  }
+}
+
+@media (max-width: 800px) {
+  nav .mainMenu {
+    height: 100vh;
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    left: 0px;
+    z-index: 10;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgb(0, 0, 0);
+    transition: top 1s ease 0s;
+    display: none;
+  }
+  nav .mainMenu .closeMenu {
     display: block;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+  nav .openMenu {
+    display: block;
+  }
+  nav.menu li {
+    padding-left: 30px;
+  }
+  nav .mainMenu li a:hover {
+    background: none;
+    color: rgb(255, 123, 0);
+  }
+  .icons i {
+    display: inline-block;
+    padding: 12px;
   }
 }
 
@@ -440,7 +528,7 @@ footer {
       justify-content: center;
       align-items: center;
       .line {
-        margin-top: 21px !important; /* 強制覆蓋原有樣式 */
+        margin-top: 21px !important; // 強制覆蓋原有樣式
       }
     }
 
@@ -449,10 +537,10 @@ footer {
     }
 
     h1 {
-      display: flex !important; /* 使用 Flexbox 布局，並強制覆蓋原有樣式 */
-      justify-content: center !important; /* 水平置中，並強制覆蓋原有樣式 */
-      align-items: center !important; /* 垂直置中，並強制覆蓋原有樣式 */
-      width: 100%; /* 確保 h1 佔滿父容器的寬度 */
+      display: flex !important; // 使用 Flexbox 布局，並強制覆蓋原有樣式
+      justify-content: center !important; // 水平置中，並強制覆蓋原有樣式
+      align-items: center !important; // 垂直置中，並強制覆蓋原有樣式
+      width: 100%; // 確保 h1 佔滿父容器的寬度
     }
 
     span {
@@ -461,8 +549,8 @@ footer {
     }
 
     img {
-      display: block; /* 將 img 設置為塊級元素 */
-      margin: auto; /* 使用 margin: auto 來垂直和水平置中 */
+      display: block; // 將 img 設置為塊級元素
+      margin: auto; // 使用 margin: auto 來垂直和水平置中
     }
   }
 }
@@ -475,13 +563,13 @@ footer {
     flex-direction: column;
 
     h1 {
-      display: flex !important; /* 使用 Flexbox 布局，並強制覆蓋原有樣式 */
-      justify-content: center !important; /* 水平置中，並強制覆蓋原有樣式 */
-      align-items: center !important; /* 垂直置中，並強制覆蓋原有樣式 */
-      width: 100%; /* 確保 h1 佔滿父容器的寬度 */
+      display: flex !important; // 使用 Flexbox 布局，並強制覆蓋原有樣式
+      justify-content: center !important; // 水平置中，並強制覆蓋原有樣式
+      align-items: center !important; // 垂直置中，並強制覆蓋原有樣式
+      width: 100%; // 確保 h1 佔滿父容器的寬度
     }
     .line {
-      margin-top: 25px !important; /* 強制覆蓋原有樣式 */
+      margin-top: 25px !important; // 強制覆蓋原有樣式
     }
     span {
       display: block;
@@ -491,17 +579,75 @@ footer {
 }
 
 @media (max-width: 690px) {
+  .contact-us {
+    height: 40vh !important; // 強制覆蓋原有樣式
+  }
+}
+
+@media (max-width: 690px) {
   footer {
-    justify-content: center;
-    flex-direction: column;
+    flex-direction: column; // 垂直排列
+    justify-content: center; // 垂直置中
+    align-items: center; // 水平置中
+
+    text-align: center;
+    section {
+      flex-direction: column; // 垂直排列
+      position: relative;
+      .bottom-logo {
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        width: 70px;
+        height: 70px;
+        margin: 30px 0;
+        p {
+          font-size: 2.5rem;
+        }
+      }
+      .vertical-line {
+        position: absolute;
+        top: 10%;
+        left: -5%;
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        height: 0.5px;
+      }
+    }
     .icons {
-      display: flex;
       align-items: center;
       justify-content: center;
-      margin: 20px 0;
+      margin: 50px 0;
+
       .icon {
+        justify-content: center;
+        align-items: center;
         margin: 0 20px;
       }
+      p {
+        margin: 10px 0;
+      }
+    }
+  }
+}
+
+@media (max-width: 375px) {
+  .new-contact {
+    display: flex !important; // 使用 Flexbox 布局，並強制覆蓋原有樣式
+    flex-direction: column;
+    .news {
+      display: block !important; // 使用 Flexbox 布局，並強制覆蓋原有樣式
+      justify-content: center;
+      text-align: center;
+      .new {
+        h1 {
+          margin-right: 10px !important;
+        }
+      }
+    }
+    .new-btns {
+      margin: 20px 0;
     }
   }
 }
